@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet, Button, TextInput, Modal} from 'react-native';
+import {Text, View, StyleSheet, Button, TextInput} from 'react-native';
 import React, {useState} from 'react';
 import {visbygk} from '../courses/visbygk';
 import DropDownPicker from 'react-native-dropdown-picker';

@@ -3,8 +3,6 @@ import {
   View,
   StyleSheet,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  Platform,
 } from 'react-native';
 import React, {useState} from 'react';
 
