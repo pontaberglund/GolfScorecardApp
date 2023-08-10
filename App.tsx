@@ -25,17 +25,15 @@ function App(): JSX.Element {
     try {
       const tempData = await AsyncStorage.getItem('data');
       data = tempData != null ? tempData : '';
-      //console.log(data)
     } catch (error) {
       console.log(error);
     }
-    console.log('Retrived data: ' + data);
     let parsedData = JSON.parse(data);
-    setTotalPoints(parsedData.totPoints);
-    setTotalStrokes(parsedData.totStrokes);
-    setResults(parsedData.results);
+    setTotalPoints(parsedData.totPoints || 0);
+    setTotalStrokes(parsedData.totStrokes || 0);
+    setResults(parsedData.results || new Array(18).fill(''));
     setPoints(parsedData.points || new Array(18).fill(''));
-    setCurrentHole(parsedData.currentHole);
+    setCurrentHole(parsedData.currentHole || 1);
     setExtra(parsedData.extra || new Array(18).fill('0'));
     setPar(parsedData.par || visbygk.nineHole.par);
     setNumberOfHoles(parsedData.numberOfHoles || '9');
@@ -68,7 +66,6 @@ function App(): JSX.Element {
     } catch (error) {
       console.log(error);
     }
-    console.log('Data stored: ' + data);
   }
 
   function onSetButtonPress(strokes: number) {
@@ -130,6 +127,7 @@ function App(): JSX.Element {
     storeData(new Array(18).fill(''), new Array(18).fill(''), 0, 0, 1, extra);
   }
 
+  //Executed only once, when app starts
   useEffect(() => {
     getData();
   }, []);
