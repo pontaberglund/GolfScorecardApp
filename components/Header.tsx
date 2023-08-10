@@ -100,7 +100,6 @@ export default function Header({
           zIndex={3000}   />
       </View>
       <View style={styles.hcpView}>
-        <Text style={styles.hcp}>Shcp:</Text>
         <TextInput
           placeholder={shcp}
           onChangeText={shcp => calculateExtra(shcp)}
